@@ -1,9 +1,9 @@
 // My Contacts Basic
-
+let contacts = []
 // HTML Elements
 let goBtnEl = document.getElementById('go-btn');
 let menuEl = document.getElementById('menu');
-let outputEl = document.getElementById('output');
+let contactsE1 = document.getElementById('contacts');
 
 // Go Btn - Menu Listener
 goBtnEl.addEventListener('click', goBtnHandler);
@@ -27,7 +27,10 @@ function goBtnHandler() {
 
 // MENU FUNCTIONS
 function displayContacts() {
-  console.log('Display Contacts');
+  let outputstr = "";
+  for (let i = 0; i < contacts.length; i++) {
+    outputstr += GetcontactHTML(tasks[i], i);
+}
 }
 
 function addContact() {
