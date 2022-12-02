@@ -34,7 +34,10 @@ for(let i = 0; i<contacts.length; i++) {
 
 
 function addContact() {
-  
+  let N = prompt("give contact name") 
+  let E = prompt("give contact Email")
+  let C = prompt("give contact country")
+  contacts.push
 }
 
 function removeContact() {
