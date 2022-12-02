@@ -27,14 +27,14 @@ function goBtnHandler() {
 
 // MENU FUNCTIONS
 function displayContacts() {
-  let outputstr = "";
-  for (let i = 0; i < contacts.length; i++) {
-    outputstr += GetcontactHTML(tasks[i], i);
+for(let i = 0; i<contacts.length; i++) {
+  contactsE1.innerHTML = `${contacts[i]}`
 }
 }
 
+
 function addContact() {
-  console.log('Add Contact');
+  
 }
 
 function removeContact() {
