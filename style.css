@@ -3,3 +3,7 @@ body {
   margin: auto;
   padding: 20px;
 }
+
+#contacts div{
+  border: 2px solid gray;
+}

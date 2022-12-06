@@ -3,7 +3,8 @@ let contacts = [""];
 // HTML Elements
 let goBtnEl = document.getElementById("go-btn");
 let menuEl = document.getElementById("menu");
-let contactsE1 = document.getElementById("Contacts");
+let contactsE1 = document.getElementById("contacts");
+let outputE1 = document.getElementById("output");
 
 // Go Btn - Menu Listener
 goBtnEl.addEventListener("click", goBtnHandler);
@@ -27,18 +28,20 @@ function goBtnHandler() {
 
 // MENU FUNCTIONS
 function displayContacts() {
+  let outputstr = ``;
   for (let i = 0; i < contacts.length; i++) {
-    contactsE1.innerHTML = `${contacts[i].N}`;
+    outputstr += getContactStr(contacts[i], i);
   }
+  contactsE1.innerHTML = outputstr;
 }
 
 function addContact() {
   let N = prompt("give contact name");
   let E = prompt("give contact Email");
-  let p = prompt("give contact phone Num")
+  let p = prompt("give contact phone Num");
   let C = prompt("give contact country");
-  contacts.push(newcontact(N,E,p,C));
-  contactsE1.innerHTML += `contact added: ${N,E,p,C}`
+  contacts.push(newcontact(N, E, p, C));
+  outputE1.innerHTML += `contact added: ${N} <br>`;
 }
 
 function removeContact() {
@@ -58,6 +61,14 @@ function newcontact(name, email, phone, country) {
     N: name,
     E: email,
     p: phone,
-    C: country
+    C: country,
   };
+}
+
+function getContactStr(contact, i) {
+  return `
+  <div> 
+  Contact ${i}<br> Name:${contact.N}<br> Email:${contact.E}<br> Phone:${contact.p} <br> country:${contact.C}<br>
+  </div>
+  `;
 }
