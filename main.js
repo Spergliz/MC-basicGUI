@@ -50,10 +50,11 @@ function removeContact() {
   let index = +prompt("enter contacts # (e.x: Contact X)");
   if (index >= 0 && index < contacts.length) {
     contacts.splice(index, 1);
-  }else{
-    alert('contact does not exist')
+    savecontact();
+    displayContacts();
+  } else {
+    alert("contact does not exist");
   }
-
 }
 
 function displayByName() {
