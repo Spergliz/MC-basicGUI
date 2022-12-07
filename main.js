@@ -58,11 +58,25 @@ function removeContact() {
 }
 
 function displayByName() {
-  console.log("Display by Name");
+  let outputstr = ``;
+  let A = prompt("enter name (capital at start) ");
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i].N === A) {
+      outputstr += getContactStr(contacts[i], i);
+      outputE1.innerHTML = outputstr
+    }
+  }
 }
 
 function displayByCountry() {
-  console.log("Display by Country");
+  let outputstr = ``;
+  let A = prompt("enter Country");
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i].C === A) {
+      outputstr += getContactStr(contacts[i], i);
+      outputE1.innerHTML = outputstr
+    }
+  }
 }
 
 function newcontact(name, email, phone, country) {
@@ -77,7 +91,7 @@ function newcontact(name, email, phone, country) {
 function getContactStr(contact, i) {
   return `
   <div> 
-  Contact ${i}<br> Name:${contact.N}<br> Email:${contact.E}<br> Phone:${contact.p} <br> country:${contact.C}<br>
+  Contact ${i}<br> Name:${contact.N}<br> Email:${contact.E}<br> Phone:${contact.p} <br> Country:${contact.C}<br>
   </div>
   `;
 }
