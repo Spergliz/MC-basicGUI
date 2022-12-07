@@ -1,5 +1,5 @@
 // My Contacts Basic
-let contacts = [""];
+let contacts = loadcontacts();
 // HTML Elements
 let goBtnEl = document.getElementById("go-btn");
 let menuEl = document.getElementById("menu");
@@ -42,10 +42,18 @@ function addContact() {
   let C = prompt("give contact country");
   contacts.push(newcontact(N, E, p, C));
   outputE1.innerHTML += `contact added: ${N} <br>`;
+  displayContacts();
+  savecontact();
 }
 
 function removeContact() {
-  console.log("Remove Contact");
+  let index = +prompt("enter contacts # (e.x: Contact X)");
+  if (index >= 0 && index < contacts.length) {
+    contacts.splice(index, 1);
+  }else{
+    alert('contact does not exist')
+  }
+
 }
 
 function displayByName() {
@@ -71,4 +79,13 @@ function getContactStr(contact, i) {
   Contact ${i}<br> Name:${contact.N}<br> Email:${contact.E}<br> Phone:${contact.p} <br> country:${contact.C}<br>
   </div>
   `;
+}
+
+function savecontact() {
+  localStorage.setItem("contacts", JSON.stringify(contacts));
+}
+
+function loadcontacts() {
+  let contactstr = localStorage.getItem("contacts");
+  return JSON.parse(contactstr) ?? [];
 }
